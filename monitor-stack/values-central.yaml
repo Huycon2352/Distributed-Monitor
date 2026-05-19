@@ -1,3 +1,4 @@
+
 #prometheus:
 #  prometheusSpec:
 #    retention: 30d
@@ -14,3 +15,10 @@ prometheus:
     #    value: "" # Để trống value để nó render ra dạng --web.enable-remote-write-receiver
     additionalPrometheusArgs:
     - --web.enable-remote-write-receiver
+    
+    # ✅ TẮT các agent scrape - chỉ nhận remote-write
+    serviceMonitorSelector: {}
+    serviceMonitorSelectorNilUsesHelmValues: false
+    
+    podMonitorSelector: {}
+    podMonitorSelectorNilUsesHelmValues: false
